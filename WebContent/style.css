@@ -1,0 +1,267 @@
+body{
+	background: #e4e7ea;
+	font-family: 'Lato', sans-serif;
+	font-size: 13px;
+}
+
+/*Header*/
+
+header{
+	background: url("images/bg_top.gif") repeat-x;
+  height: 115px;
+}
+
+
+
+/*Rodapé*/
+
+footer {
+	background: url("images/bg_footer.gif") repeat-x;
+  height: 126px;
+}
+
+.formulario{
+	max-width: 330px;
+  margin: 100px auto 0;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.formulario h2.topo-formulario-login {
+  margin: 0;
+  padding: 20px 15px;
+  text-align: center;
+  background: #0c3665;
+  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.formulario .btn{
+	background: #0c3665;
+	color:#fff;
+}
+
+.btn{
+	background: #0c3665;
+	color:#fff;
+}
+
+.conteudo-login{
+  padding: 20px;
+}
+
+.form-control{
+	margin-bottom: 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #eaeaea;
+  box-shadow: none;
+  font-size: 12px;
+}
+
+.checkbox label{
+	font-weight: normal;
+  color: #b6b6b6;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-right a{
+	color: #0c3665;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.sidebar {
+  height: 1000px;
+  width: 300px;
+  position: fixed;
+  padding: 0px;
+  background-color: #0c3665;
+  margin-top: 60px;
+  overflow: hidden;
+}
+
+#main-content {
+  margin-left: 300px;
+  display: block;
+}
+
+.wrapper{
+	margin-top: 60px;
+  display: inline-block;
+  width: 100%;
+}
+
+.titulo{
+	display: inline-block;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid #d3d7db;
+  border-top: 1px solid #eee;
+  background: #f7f7f7;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+}
+
+.pull-left{
+	float: left;
+}
+
+.titulo h1 {
+	font-size: 28px;
+  color: #0c3665;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.page-topbar {
+  min-height: 60px;
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  top: 0px;
+  left: 0px;
+  z-index: 1999;
+  box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.15);
+  -o-box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.15);
+  -ms-box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.15);
+  -moz-box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.15);
+  -webkit-box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.15);
+  max-height: 60px;
+}
+
+.logo-area {
+  background-image: url('images/logo.png');
+  background-repeat: no-repeat;
+  width: 300px;
+
+  display: block;
+  min-height: 60px;
+  float: left;
+}
+
+.perfil{
+	background: transparent;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+.perfil-imagem{
+	padding-right: 5px;
+  display: inline-block;
+}
+
+.perfil-imagem img {
+  height: 65px;
+  width: 65px;
+  float: right;
+  top: 5px;
+  left: 5px;
+  position: relative;
+  background-color: #777777;
+}
+
+.profile-details h3 {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+}
+
+.profile-details .profile-title {
+  color: rgba(174, 178, 183, 1.0);
+}
+
+#main-menu-wrapper ul {
+  padding: 0px;
+  margin: 0px;
+  padding-left: 0px;
+  list-style-type: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  padding: 5px 15px;
+  padding-top: 12px;
+  height: 1000px;
+}
+
+#main-menu-wrapper li a:hover, #main-menu-wrapper li.open a {
+  background-color: #134680;
+  color: #999;
+}
+
+#main-menu-wrapper li a {
+  display: block;
+  line-height: 45px;
+  min-height: 45px;
+  height: auto;
+  text-decoration: none;
+  padding-left: 7px;
+  clear: both;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #8f939e;
+  font-size: 15px;
+}
+
+#main-menu-wrapper h5{
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.info-menu {
+  height: 60px;
+  margin: 0;
+  line-height: 60px;
+  padding: 0 15px;
+}
+
+.formulario-search{
+	margin-top: 12px;
+	width: 220px;
+}
+
+.formulario-search input{
+	width: 250px;
+  background: #fff url(images/icon-search.png) no-repeat 95% center;
+}
+
+.pagina{
+	padding: 30px;
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-top: 0px;
+  border-top: 2px solid #0c3665;
+  float: left;
+  width: 100%;
+}
+
+.logo-area h4{
+	text-align: center;
+  margin-top: 20px;
+}
+
+.glyphicon {
+  padding: 10px;
+}
+
+.cadastro a {
+  color: #0c3665;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 16px;
+  float: left;
+}
