@@ -1,9 +1,12 @@
 package oportunidades.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
+
 
 import oportunidades.model.TipoUsuario;
 
@@ -23,28 +26,28 @@ public class TipoUsuarioDAO {
 		}
 	}
 
-	public ArrayList<TipoUsuario> buscaTipoUsuario() {
-
-		String sql = "SELECT id, descricao FROM tipoUsuario";
-
-		PreparedStatement stmt = null;
+	public List<TipoUsuario> buscaTipoUsuario() {
+		
+		String sql = "SELECT id, descricao FROM tipoUsuario";	
+		
+		Statement stmt = null;
 		ResultSet rs = null;
-		ArrayList<TipoUsuario> listaTipoUsuario = new ArrayList<TipoUsuario>();
+		List<TipoUsuario> listaTipoUsuario = new ArrayList<TipoUsuario>();
 
 		try {
-			if (connection == null) {
-				System.out.println("conexao null");
-				this.connection = new ConexaoDAO().getConexao();
-			}
-			TipoUsuario tipoUsuario = new TipoUsuario();
-			stmt = connection.prepareStatement(sql);
+			TipoUsuario tipoUsuario = null;
+			stmt = connection.createStatement();
 			System.out.println("Buscando tipo de usuários");
-			rs = stmt.executeQuery();
-			
+			rs = stmt.executeQuery(sql);
+			rs.beforeFirst();
 			while (rs.next()) {
-				int idTipoUsuario = rs.getInt(1);
+				tipoUsuario = new TipoUsuario();
+				int idTipoUsuario = rs.getInt("id");
+				System.out.println(idTipoUsuario);
 				tipoUsuario.setId(idTipoUsuario);
-				String descricaoTipoUsuario = rs.getString(2);
+				
+				String descricaoTipoUsuario = rs.getString("descricao");
+				System.out.println(descricaoTipoUsuario);
 				tipoUsuario.setDescricao(descricaoTipoUsuario);
 				
 				listaTipoUsuario.add(tipoUsuario);

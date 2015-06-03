@@ -1,15 +1,18 @@
 package oportunidades.controller;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
 import oportunidades.dao.TipoUsuarioDAO;
-import oportunidades.model.TipoUsuario;;
+import oportunidades.model.TipoUsuario;
+
 
 @ManagedBean(name = "tuc")
 public class TipoUsuarioController {
 	
 	private TipoUsuario tipoUsuario = new TipoUsuario();
+	private List<TipoUsuario> listaTipoUsuario = null;
 
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
@@ -18,9 +21,15 @@ public class TipoUsuarioController {
 	public void setTipoUsuario(TipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
+	
+	public String novoTipoUsuario(){
+		this.tipoUsuario = new TipoUsuario();
+		return "/cadastro-rapido.xhtml";
+	}
 
-	public ArrayList<TipoUsuario> buscaTipoUsuario() throws Exception {
+	public List<TipoUsuario> buscaTipoUsuario() throws Exception {
 		TipoUsuarioDAO daoTipoUsuario = new TipoUsuarioDAO();
-		return daoTipoUsuario.buscaTipoUsuario();
+		listaTipoUsuario = daoTipoUsuario.buscaTipoUsuario();
+		return listaTipoUsuario;
 	}
 }

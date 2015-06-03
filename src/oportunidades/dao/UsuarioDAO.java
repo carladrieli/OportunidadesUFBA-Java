@@ -25,7 +25,7 @@ public class UsuarioDAO {
 	public void insereUsuario(Usuario usuario) {
 
 		String sql = "INSERT INTO usuario"
-				+ "(nome, senha, email, descricao)" + " values (?,?,?,?)";
+				+ "(nome, senha, email, tipo)" + " values (?,?,?,?)";
 
 		PreparedStatement stmt = null;
 

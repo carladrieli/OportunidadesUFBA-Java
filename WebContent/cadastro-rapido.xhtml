@@ -3,7 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,7 +16,7 @@
 <link href='http://fonts.googleapis.com/css?family=Lato'
 	rel='stylesheet' type='text/css' />
 
-</head>
+</h:head>
 <body>
 
 	<div class="container-fluid">
@@ -55,7 +55,7 @@
 				<div id="main-menu-wrapper">
 					<h5>Navegação</h5>
 					<ul class="wraplist">
-						<li class=""><a href="painel.html"> <span
+						<li class=""><a href="painel.xhtml"> <span
 								class="glyphicon glyphicon-dashboard"></span> <span
 								class="title">Painel</span>
 						</a></li>
@@ -119,16 +119,13 @@
 									</div>
 
 									<div class="form-group">
-										<label>Usuário</label>
+										<label>Tipo de Usuário</label>
 
-										<!-- <h:selectOneMenu class="form-control"
-											value="#{tuc.tipoUsuario.id}">
-											<f:selectItems value="#{tuc.tipoUsuario}" var="tipoUsuario"
-												itemValue="#{tipoUsuario.id}"
-												itemLabel="#{tipoUsuario.descricao}" />
-										</h:selectOneMenu> -->
+										<h:selectOneMenu styleClass="form-control" value="#{uc.usuario.tipo}" >
+											<f:selectItems value="#{tuc.buscaTipoUsuario()}" var="tipoUsuario" itemValue="#{tipoUsuario.id}" itemLabel="#{tipoUsuario.descricao}" />
+										</h:selectOneMenu>
 										
-										<!-- <p:selectOneRadio  class="form-control" id="selectTipoUsuario" value="#{tuc.tipoUsuario}">
+										<!-- <p:selectOneRadio  value="#{tuc.tipoUsuario.id}">
 											<f:selectItems value="#{tuc.buscaTipoUsuario()}"  itemLabel="#{tuc.tipoUsuario.descricao}" itemValue="#{tuc.tipoUsuario.id}"/>
 										</p:selectOneRadio> -->
 
