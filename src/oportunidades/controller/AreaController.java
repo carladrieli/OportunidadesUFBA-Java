@@ -8,7 +8,7 @@ import oportunidades.dao.AreaDAO;
 import oportunidades.model.Area;
 
 
-@ManagedBean(name = "ac")
+@ManagedBean(name = "areaController")
 public class AreaController {
 
 	private Area area = new Area();
