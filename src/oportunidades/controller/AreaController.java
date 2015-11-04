@@ -1,16 +1,18 @@
 package oportunidades.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
 import oportunidades.dao.AreaDAO;
 import oportunidades.model.Area;
 
-@ManagedBean(name = "areaController")
+
+@ManagedBean(name = "ac")
 public class AreaController {
 
 	private Area area = new Area();
+	private List<Area> listaArea = null;
 
 	public Area getArea() {
 		return area;
@@ -20,9 +22,10 @@ public class AreaController {
 		this.area = area;
 	}
 
-	public ArrayList<Area> buscaArea() throws Exception {
+	public List<Area> buscaArea() throws Exception {
 		AreaDAO daoArea = new AreaDAO();
-		return daoArea.buscaArea();
+		listaArea = daoArea.buscaArea();
+		return listaArea;
 	}
 
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import oportunidades.model.Area;
 
+
 public class AreaDAO {
 
 	private Connection connection;
@@ -41,13 +42,26 @@ public class AreaDAO {
 			System.out.println("Buscando áreas");
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				int idArea = rs.getInt(1);
+				/*int idArea = rs.getInt(1);
 				area.setId(idArea);
 				String nomeArea = rs.getString(2);
 				area.setNome(nomeArea);
 				String descricaoArea = rs.getString(3);
 				area.setDescricao(descricaoArea);
+				listaArea.add(area);*/
+				
+				
+				area = new Area();
+				int idArea = rs.getInt("id");
+				System.out.println(idArea);
+				area.setId(idArea);
+				
+				String nomeArea = rs.getString("nome");
+				System.out.println(nomeArea);
+				area.setNome(nomeArea);
+				
 				listaArea.add(area);
+				
 			}
 			stmt.close();
 

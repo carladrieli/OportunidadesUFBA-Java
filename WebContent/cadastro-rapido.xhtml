@@ -4,17 +4,17 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Cadastro Rápido | Oportunidades UFBA</title>
+	<title>Cadastro Rápido | Oportunidades UFBA</title>
 
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="style.css" rel="stylesheet" />
-<link href='http://fonts.googleapis.com/css?family=Lato'
-	rel='stylesheet' type='text/css' />
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="style.css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Lato'
+		rel='stylesheet' type='text/css' />
 
 </h:head>
 <body>
@@ -121,19 +121,13 @@
 									<div class="form-group">
 										<label>Tipo de Usuário</label>
 
-										<h:selectOneMenu styleClass="form-control" value="#{uc.usuario.tipo}" >
-											<f:selectItems value="#{tuc.buscaTipoUsuario()}" var="tipoUsuario" itemValue="#{tipoUsuario.id}" itemLabel="#{tipoUsuario.descricao}" />
+										<h:selectOneMenu styleClass="form-control"
+											value="#{uc.usuario.tipo}">
+											<f:selectItems value="#{tuc.buscaTipoUsuario()}"
+												var="tipoUsuario" itemValue="#{tipoUsuario.id}"
+												itemLabel="#{tipoUsuario.descricao}" />
 										</h:selectOneMenu>
-										
-										<!-- <p:selectOneRadio  value="#{tuc.tipoUsuario.id}">
-											<f:selectItems value="#{tuc.buscaTipoUsuario()}"  itemLabel="#{tuc.tipoUsuario.descricao}" itemValue="#{tuc.tipoUsuario.id}"/>
-										</p:selectOneRadio> -->
 
-										<!-- <select class="form-control">
-											<option>Aluno</option>
-											<option>Professor</option>
-											<option>Empresa</option>
-										</select> -->
 									</div>
 									<h:commandButton value="Cadastrar" class="btn"
 										action="#{uc.insereUsuario}" />
