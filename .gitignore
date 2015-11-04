@@ -1,6 +1,5 @@
 /build/
-<<<<<<< HEAD
-=======
+
 .gitignore
 *.class
 *.DS_Store
@@ -8,4 +7,4 @@
 *.project
 .metadata*
 .settings*
->>>>>>> branch 'master' of https://github.com/carladrieli/OportunidadesUFBA.git
+
