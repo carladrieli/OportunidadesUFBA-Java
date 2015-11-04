@@ -5,7 +5,7 @@ import javax.faces.bean.ManagedBean;
 import oportunidades.dao.UsuarioDAO;
 import oportunidades.model.Usuario;
 
-@ManagedBean (name = "uc") 
+@ManagedBean (name = "usuarioController") 
 public class UsuarioController {
 
 	private Usuario usuario = new Usuario();

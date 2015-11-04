@@ -104,17 +104,17 @@
 								<h:form>
 									<div class="form-group">
 										<label class="form-label">Nome</label>
-										<h:inputText value="#{uc.usuario.nome}" class="form-control" />
+										<h:inputText value="#{usuarioController.usuario.nome}" class="form-control" />
 									</div>
 
 									<div class="form-group">
 										<label class="form-label">E-mail</label>
-										<h:inputText value="#{uc.usuario.email}" class="form-control" />
+										<h:inputText value="#{usuarioController.usuario.email}" class="form-control" />
 									</div>
 
 									<div class="form-group">
 										<label>Senha</label>
-										<h:inputSecret redisplay="false" value="#{uc.usuario.senha}"
+										<h:inputSecret redisplay="false" value="#{usuarioController.usuario.senha}"
 											class="form-control" />
 									</div>
 
@@ -122,15 +122,15 @@
 										<label>Tipo de Usuário</label>
 
 										<h:selectOneMenu styleClass="form-control"
-											value="#{uc.usuario.tipo}">
-											<f:selectItems value="#{tuc.buscaTipoUsuario()}"
+											value="#{usuarioController.usuario.tipo}">
+											<f:selectItems value="#{tipoUsuarioController.buscaTipoUsuario()}"
 												var="tipoUsuario" itemValue="#{tipoUsuario.id}"
 												itemLabel="#{tipoUsuario.descricao}" />
 										</h:selectOneMenu>
 
 									</div>
 									<h:commandButton value="Cadastrar" class="btn"
-										action="#{uc.insereUsuario}" />
+										action="#{usuarioController.insereUsuario}" />
 								</h:form>
 							</div>
 						</div>

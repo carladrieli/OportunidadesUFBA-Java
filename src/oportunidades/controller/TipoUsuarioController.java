@@ -8,7 +8,7 @@ import oportunidades.dao.TipoUsuarioDAO;
 import oportunidades.model.TipoUsuario;
 
 
-@ManagedBean(name = "tuc")
+@ManagedBean(name = "tipoUsuarioController")
 public class TipoUsuarioController {
 	
 	private TipoUsuario tipoUsuario = new TipoUsuario();
