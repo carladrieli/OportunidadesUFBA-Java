@@ -38,7 +38,7 @@ public class CursoDAO {
 			stmt = connection.prepareStatement(sql);
 			System.out.println("Inserindo curso");
 			stmt.setString(1, curso.getNome());
-			stmt.setInt(2, curso.getArea().getId());
+			stmt.setLong(2, curso.getArea().getId());
 			
 			System.out.println(curso.getArea().getId());
 			stmt.execute();

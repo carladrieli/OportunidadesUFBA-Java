@@ -10,7 +10,8 @@ public class ConexaoDAO {
 	public Connection getConexao()  throws Exception{
 						 
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();			
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			
 			return DriverManager.getConnection("jdbc:mysql://localhost/oportunidadesufba", "root", "root");
 			
 		} catch (Exception e) {

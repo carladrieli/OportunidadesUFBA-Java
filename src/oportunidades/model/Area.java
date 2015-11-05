@@ -1,16 +1,18 @@
 package oportunidades.model;
 
-public class Area {
+import java.io.Serializable;
+
+public class Area implements Serializable,SampleEntity {
 	
-	private int id;
+	private Integer id;
 	private String nome;
 	private String descricao;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	public void
-	setId(int id) {
+	setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -24,5 +26,10 @@ public class Area {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+	   return(o instanceof Area && ((Area)o).getId().equals(this.getId()));
 	}
 }
