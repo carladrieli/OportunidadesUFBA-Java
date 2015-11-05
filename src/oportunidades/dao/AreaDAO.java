@@ -1,11 +1,12 @@
 package oportunidades.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
-
+import java.util.List;
 import oportunidades.model.Area;
+
 
 
 public class AreaDAO {
@@ -24,35 +25,30 @@ public class AreaDAO {
 		}
 	}
 
-	public ArrayList<Area> buscaArea() {
+	public List<Area> buscaArea() {
 
 		String sql = "SELECT id, nome, descricao FROM area";
 
-		PreparedStatement stmt = null;
+		Statement stmt = null;
 		ResultSet rs = null;
-		ArrayList<Area> listaArea = new ArrayList<Area>();
+		List<Area> listaArea = new ArrayList<Area>();
+			
 
 		try {
 			if (connection == null) {
 				System.out.println("conexao null");
 				this.connection = new ConexaoDAO().getConexao();
 			}
-			Area area = new Area();
-			stmt = connection.prepareStatement(sql);
+			
+			Area area = null;
+			stmt = connection.createStatement();
 			System.out.println("Buscando áreas");
-			rs = stmt.executeQuery();
+			rs = stmt.executeQuery(sql);
+			rs.beforeFirst();				
 			while (rs.next()) {
-				/*int idArea = rs.getInt(1);
-				area.setId(idArea);
-				String nomeArea = rs.getString(2);
-				area.setNome(nomeArea);
-				String descricaoArea = rs.getString(3);
-				area.setDescricao(descricaoArea);
-				listaArea.add(area);*/
-				
-				
+							
 				area = new Area();
-				int idArea = rs.getInt("id");
+				Integer idArea = (Integer) rs.getObject("id");
 				System.out.println(idArea);
 				area.setId(idArea);
 				
@@ -63,7 +59,7 @@ public class AreaDAO {
 				listaArea.add(area);
 				
 			}
-			stmt.close();
+			stmt.close();			 
 
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -6,12 +6,6 @@ public class Curso {
 	private String nome;
 	private Area area;
 	
-	public Area getArea() {
-		return area;
-	}
-	public void setArea(Area area) {
-		this.area = area;
-	}
 	public int getId() {
 		return id;
 	}
@@ -23,6 +17,13 @@ public class Curso {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Area getArea() {
+		return area;
+	}
+	public void setArea(Area area) {
+		this.area = area;
 	}
 	
 }
