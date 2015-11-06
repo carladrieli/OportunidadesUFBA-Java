@@ -2,6 +2,8 @@ package oportunidades.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import oportunidades.model.Usuario;
 
@@ -16,7 +18,7 @@ public class UsuarioDAO {
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Exceção ao criar Conexao.");
+			System.out.println("Excecao ao criar Conexao.");
 			e.printStackTrace();
 		}
 
@@ -25,7 +27,7 @@ public class UsuarioDAO {
 	public void insereUsuario(Usuario usuario) {
 
 		String sql = "INSERT INTO usuario"
-				+ "(nome, senha, email, tipo)" + " values (?,?,?,?)";
+				+ "(nome, senha, email, tipo, descricaoPerfil)" + " values (?,?,?,?,?)";
 
 		PreparedStatement stmt = null;
 
@@ -36,11 +38,12 @@ public class UsuarioDAO {
 			}
 
 			stmt = connection.prepareStatement(sql);
-			System.out.println("Inserindo usuário");
+			System.out.println("Inserindo usuario");
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getSenha());
 			stmt.setString(3, usuario.getEmail());
 			stmt.setInt(4, usuario.getTipo());
+			stmt.setString(5, usuario.getDescricaoPerfil());
 
 			stmt.execute();
 
@@ -48,10 +51,41 @@ public class UsuarioDAO {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Exceção ao inserir Usuário.");
+			System.out.println("Excecao ao inserir Usuario.");
 			e.printStackTrace();
 		}
 
+	}
+	
+	public Usuario buscaUsuarioId(Usuario usuario) {
+		
+		String sql = "SELECT id, email FROM usuario WHERE email = '" + usuario.getEmail() + "';";
+		Usuario aux = null;
+		
+		try {
+			if (connection == null) {
+				System.out.println("conexao null");
+				this.connection = new ConexaoDAO().getConexao();
+			}
+
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			System.out.println("Buscando usuario id");
+			while (rs.next()) {	
+				aux = new Usuario();
+				aux.setId(rs.getInt("id"));
+			}
+			
+			stmt.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Execao ao buscar usuario id.");
+			e.printStackTrace();
+		}
+		
+		return aux;
+		
 	}
 
 }
