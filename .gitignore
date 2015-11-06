@@ -1,5 +1,5 @@
 /build/
-src/oportunidades/dao/ConexaoDAO.java
+#src/oportunidades/dao/ConexaoDAO.java
 *.class
 *.DS_Store
 *.classpath
