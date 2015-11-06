@@ -21,7 +21,7 @@ public class TipoUsuarioDAO {
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Exceção ao criar Conexao.");
+			System.out.println("Excecao ao criar Conexao.");
 			e.printStackTrace();
 		}
 	}
@@ -37,7 +37,7 @@ public class TipoUsuarioDAO {
 		try {
 			TipoUsuario tipoUsuario = null;
 			stmt = connection.createStatement();
-			System.out.println("Buscando tipo de usuários");
+			System.out.println("Buscando tipo de usuarios");
 			rs = stmt.executeQuery(sql);
 			rs.beforeFirst();
 			while (rs.next()) {
@@ -56,7 +56,7 @@ public class TipoUsuarioDAO {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Exceção ao buscar tipo de usuários.");
+			System.out.println("Excecao ao buscar tipo de usuarios.");
 			e.printStackTrace();
 		}
 		return listaTipoUsuario;

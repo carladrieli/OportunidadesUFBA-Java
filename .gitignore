@@ -1,6 +1,5 @@
 /build/
 src/oportunidades/dao/ConexaoDAO.java
-.gitignore
 *.class
 *.DS_Store
 *.classpath
