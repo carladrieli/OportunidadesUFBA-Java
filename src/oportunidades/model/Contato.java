@@ -4,7 +4,7 @@ public class Contato {
 	
 	private String email;
 	private int ddd;
-	private int telefone;
+	private Long telefone;
 	
 	public String getEmail() {
 		return email;
@@ -18,10 +18,10 @@ public class Contato {
 	public void setDdd(int ddd) {
 		this.ddd = ddd;
 	}
-	public int getTelefone() {
+	public long getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(Long telefone) {
 		this.telefone = telefone;
 	}
 }
