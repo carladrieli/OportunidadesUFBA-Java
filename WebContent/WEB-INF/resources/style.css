@@ -7,7 +7,7 @@ body{
 /*Header*/
 
 header{
-	background: url("images/bg_top.gif") repeat-x;
+	background: url(#{resource["images/bg_top.gif"]}) repeat-x;
   height: 115px;
 }
 
@@ -16,7 +16,7 @@ header{
 /*Rodapé*/
 
 footer {
-	background: url("images/bg_footer.gif") repeat-x;
+	background: url(#{resource['images/bg_footer.gif']}) repeat-x;
   height: 126px;
 }
 
@@ -141,7 +141,7 @@ footer {
 }
 
 .logo-area {
-  background-image: url('images/logo.png');
+  background-image: url(#{resource['images/logo.png']});
   background-repeat: no-repeat;
   width: 300px;
 
@@ -237,7 +237,7 @@ footer {
 
 .formulario-search input{
 	width: 250px;
-  background: #fff url(images/icon-search.png) no-repeat 95% center;
+  background: #fff url(#{resource['images/icon-search.png']}) no-repeat 95% center;
 }
 
 .pagina{
