@@ -2,6 +2,8 @@ package oportunidades.controller;
 
 
 import javax.faces.bean.ManagedBean;
+
+import oportunidades.dao.EmpresaDAO;
 import oportunidades.dao.UsuarioDAO;
 import oportunidades.model.Usuario;
 
@@ -36,5 +38,21 @@ public class UsuarioController {
 		return usuario.getNome();
 		
 	}
-
+	
+	public String insereUsuarioEmpresa() throws Exception{
+		UsuarioDAO daoUsuario = new UsuarioDAO();
+		daoUsuario.insereUsuarioEmpresa(usuario);
+		//EmpresaController empresaController = new EmpresaController();
+		//empresaController.insereEmpresa();
+		//EmpresaDAO daoEmpresa = new EmpresaDAO();
+		//daoEmpresa.insereEmpresa();
+		return "/alerta.xhtml";
+		
+	}
+	public String usuarioAutentica() throws Exception{
+		UsuarioDAO daoUsuario = new UsuarioDAO();
+		daoUsuario.buscaUsuarioId(usuario);
+		return "/painel.xhtml";
+		
+	}
 }
