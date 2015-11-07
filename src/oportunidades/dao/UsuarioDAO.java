@@ -90,6 +90,39 @@ public class UsuarioDAO {
 
 	}
 	
+	public void insereUsuarioEmpresa(Usuario usuario) {
+
+		String sql = "INSERT INTO usuario"
+				+ "(nome, senha, email, tipo, descricaoPerfil)" + " values (?,?,?,?,?)";
+
+		PreparedStatement stmt = null;
+
+		try {
+			if (connection == null) {
+				System.out.println("conexao null");
+				this.connection = new ConexaoDAO().getConexao();
+			}
+
+			stmt = connection.prepareStatement(sql);
+			System.out.println("Inserindo usuario Empresa");
+			stmt.setString(1, usuario.getNome());
+			stmt.setString(2, usuario.getSenha());
+			stmt.setString(3, usuario.getEmail());
+			stmt.setInt(4, 2);
+			stmt.setString(5, usuario.getDescricaoPerfil());
+
+			stmt.execute();
+
+			stmt.close();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Excecao ao inserir Professor.");
+			e.printStackTrace();
+		}
+
+	}
+	
 	public Usuario buscaUsuarioId(Usuario usuario) {
 		
 		String sql = "SELECT id, email FROM usuario WHERE email = '" + usuario.getEmail() + "';";
@@ -107,8 +140,9 @@ public class UsuarioDAO {
 			while (rs.next()) {	
 				aux = new Usuario();
 				aux.setId(rs.getInt("id"));
+				System.out.println(rs.getInt("id"));
 			}
-			
+			System.out.println("Sem id");
 			stmt.close();
 			
 		} catch (Exception e) {
