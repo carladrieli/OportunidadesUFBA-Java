@@ -29,5 +29,12 @@ public class UsuarioController {
 		return usuario.getNome();
 		
 	}
+	
+	public String insereUsuarioProfessor() throws Exception{
+		UsuarioDAO daoUsuario = new UsuarioDAO();
+		daoUsuario.insereUsuarioProfessor(usuario);
+		return usuario.getNome();
+		
+	}
 
 }
