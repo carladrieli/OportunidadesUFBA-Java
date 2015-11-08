@@ -1,74 +1,86 @@
-<?xml version='1.0' encoding='utf-8' ?> 
+<?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition 
-	xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	lang="pt">
-			<section id="main-content">
-				<section class="wrapper">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-						style="padding: 0;">
-						<div class="titulo">
-							<div class="pull-left">
-								<h1>Cadastrar Aluno</h1>
-							</div>
-						</div>
+	xmlns:ui="http://java.sun.com/jsf/facelets" lang="pt">
+	<section id="main-content"> <section class="wrapper">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+		style="padding: 0;">
+		<div class="titulo">
+			<div class="pull-left">
+				<h1>Cadastrar Aluno</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="pagina">
+			<div class="col-md-8 col-sm-9 col-xs-10">
+				<h:form>
+					<div class="form-group">
+						<label class="form-label" for="field-1">Nome</label>
+						<h:inputText value="#{alunoController.aluno.nome}"
+							class="form-control" id="nome-aluno" />
 					</div>
-					
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="pagina">
-							<div class="col-md-8 col-sm-9 col-xs-10">
-								<h:form>
-									<div class="form-group">
-										<label class="form-label" for="field-1">Nome</label> 
-										<h:inputText value="#{alunoController.aluno.nome}" class="form-control" id="nome-aluno"/>
-									</div>
 
-									<div class="form-group">
-										<label>E-mail</label> 
-										<h:inputText value="#{alunoController.aluno.email}" class="form-control" id="email-aluno"/>
-									</div>
-
-									<div class="form-group">
-										<label>Senha</label> 
-										<h:inputSecret value="#{alunoController.aluno.senha}" class="form-control" id="senha-aluno"/>
-									</div>
-
-									<div class="form-group">
-										<label>Matrícula</label> 
-										<h:inputText value="#{alunoController.aluno.matricula}" class="form-control" id="matricula-aluno"/>
-									</div>
-
-									<div class="form-group">
-										<label>Telefone</label> 
-										<h:inputText class="form-control" id="telefone-aluno"/>
-									</div>
-
-									<div class="form-group">
-										<label class="form-label" for="field-1">Semestre de entrada</label> 
-										<h:inputText value="#{alunoController.aluno.semestre}" class="form-control" id="semestre-entrada-aluno"/>
-									</div>
-
-									<div class="form-group">
-										<label class="form-label" for="field-1">Previsão de conclusão</label> 
-										<h:inputText value="#{alunoController.aluno.previsaoConclusao}" class="form-control" id="previsao-conclusao-aluno"/>
-									</div>
-
-									<div class="form-group">
-										<label class="form-label" for="field-1">Descrição</label>
-										<h:inputTextarea value="#{alunoController.aluno.descricaoPerfil}" class="form-control" rows="5"/>
-									</div>
-
-									<h:commandButton value="Cadastrar" class="btn"
-										action="#{alunoController.insereAluno}" />
-								</h:form>
-							</div>
-						</div>
+					<div class="form-group">
+						<label>E-mail</label>
+						<h:inputText value="#{alunoController.aluno.email}"
+							class="form-control" id="email-aluno" />
 					</div>
-				</section>
-			</section>
-    	</ui:composition>
+
+					<div class="form-group">
+						<label>Senha</label>
+						<h:inputSecret value="#{alunoController.aluno.senha}"
+							class="form-control" id="senha-aluno" />
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="field-1">Curso</label>
+						<h:selectOneMenu styleClass="form-control"
+							value="#{alunoController.aluno.curso}" converter="generic">
+							<f:selectItems value="#{cursoController.buscaCurso()}"
+								var="curso" itemValue="#{curso}" itemLabel="#{curso.nome}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="form-group">
+						<label>Matrícula</label>
+						<h:inputText value="#{alunoController.aluno.matricula}"
+							class="form-control" id="matricula-aluno" />
+					</div>
+
+					<div class="form-group">
+						<label>Telefone</label>
+						<h:inputText class="form-control" id="telefone-aluno" />
+					</div>
+
+					<div class="form-group">
+						<label class="form-label" for="field-1">Semestre de
+							entrada</label>
+						<h:inputText value="#{alunoController.aluno.semestre}"
+							class="form-control" id="semestre-entrada-aluno" />
+					</div>
+
+					<div class="form-group">
+						<label class="form-label" for="field-1">Previsão de
+							conclusão</label>
+						<h:inputText value="#{alunoController.aluno.previsaoConclusao}"
+							class="form-control" id="previsao-conclusao-aluno" />
+					</div>
+
+					<div class="form-group">
+						<label class="form-label" for="field-1">Descrição</label>
+						<h:inputTextarea value="#{alunoController.aluno.descricaoPerfil}"
+							class="form-control" rows="5" />
+					</div>
+
+					<h:commandButton value="Cadastrar" class="btn"
+						action="#{alunoController.insereAluno}" />
+				</h:form>
+			</div>
+		</div>
+	</div>
+	</section> </section>
+</ui:composition>
