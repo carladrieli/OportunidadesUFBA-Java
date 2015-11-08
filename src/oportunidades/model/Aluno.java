@@ -11,8 +11,7 @@ public class Aluno extends Usuario {
 	private String matricula;
 	private String previsaoConclusao;
 	private Curso curso;
-	private List<Contato> contato;
-	
+		
 	public Curso getCurso() {
 		return curso;
 	}
@@ -43,10 +42,5 @@ public class Aluno extends Usuario {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
-	public List<Contato> getContato() {
-		return contato;
-	}
-	public void setContato(List<Contato> contato) {
-		this.contato = contato;
-	}
+	
 }
