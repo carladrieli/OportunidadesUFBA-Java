@@ -2,6 +2,10 @@ package oportunidades.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import oportunidades.model.Curso;
 
@@ -53,5 +57,46 @@ public class CursoDAO {
 
 	}
 
+	public List<Curso> buscaCurso() {
+
+		String sql = "SELECT id, nome, idArea FROM curso";
+
+		Statement stmt = null;
+		ResultSet rs = null;
+		List<Curso> listaCurso = new ArrayList<Curso>();
+			
+
+		try {
+			if (connection == null) {
+				System.out.println("conexao null");
+				this.connection = new ConexaoDAO().getConexao();
+			}
+			
+			Curso curso = null;
+			stmt = connection.createStatement();
+			System.out.println("Buscando cursos");
+			rs = stmt.executeQuery(sql);
+			rs.beforeFirst();				
+			while (rs.next()) {
+							
+				curso = new Curso();
+				Integer id = (Integer) rs.getObject("id");				
+				curso.setId(id);				
+				String nome = rs.getString("nome");				
+				curso.setNome(nome);
+				
+				
+				listaCurso.add(curso);
+				
+			}
+			stmt.close();			 
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exceção ao buscar cursos.");
+			e.printStackTrace();
+		}
+		return listaCurso;
+	}
 
 }
