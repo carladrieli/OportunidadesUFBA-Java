@@ -19,10 +19,17 @@ public class OportunidadeController {
 		}
 			
 		
-		public String insereOportunidade() throws Exception{
+		public Oportunidade insereOportunidade() throws Exception{
 			OportunidadeDAO daoOportunidade = new OportunidadeDAO();
-			daoOportunidade.insereOportunidade(oportunidade);
-			return oportunidade.getNome();
+			oportunidade = daoOportunidade.insereOportunidade(oportunidade);
+			return oportunidade;
+			
+		}
+		
+		public Oportunidade buscaOportunidade() throws Exception{
+			OportunidadeDAO daoOportunidade = new OportunidadeDAO();
+			daoOportunidade.buscaOportunidade(oportunidade);
+			return oportunidade;
 			
 		}
 }

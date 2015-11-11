@@ -22,7 +22,7 @@ public class OportunidadeDAO {
 
 	}
 
-	public void insereOportunidade(Oportunidade oportunidade) {
+	public Oportunidade insereOportunidade(Oportunidade oportunidade) {
 
 		String sql = "INSERT INTO oportunidade"
 				+ "(nome, remuneracao, cargaHoraria, descricao)" + " values (?,?,?,?)";
@@ -42,7 +42,9 @@ public class OportunidadeDAO {
 			stmt.setInt(3, oportunidade.getCarga_horaria());			
 			stmt.setString(4, oportunidade.getDescricao());
 
-			stmt.execute();
+			if (stmt.execute()) {
+				return oportunidade;				
+			}			
 
 			stmt.close();
 
@@ -50,8 +52,47 @@ public class OportunidadeDAO {
 			// TODO: handle exception
 			System.out.println("Excecao ao inserir Oportunidade.");
 			e.printStackTrace();
+			oportunidade = null;
 		}
+		return oportunidade;
 
 	}
+	
+	public Oportunidade buscaOportunidade(Oportunidade oportunidade) {
+
+		String sql = "SELECT id, nome, remuneracao, cargaHoraria, descricao FROM oportunidade";
+
+		PreparedStatement stmt = null;
+
+		try {
+			if (connection == null) {
+				System.out.println("conexao null");
+				this.connection = new ConexaoDAO().getConexao();
+			}
+
+			stmt = connection.prepareStatement(sql);
+			System.out.println("Inserindo Oportunidade");
+			stmt.setString(1, oportunidade.getNome());
+			stmt.setFloat(2, oportunidade.getRemuneracao());
+			stmt.setInt(3, oportunidade.getCarga_horaria());			
+			stmt.setString(4, oportunidade.getDescricao());
+
+			if (stmt.execute()) {
+				return oportunidade;				
+			}			
+
+			stmt.close();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Excecao ao inserir Oportunidade.");
+			e.printStackTrace();
+			oportunidade = null;
+		}
+		return oportunidade;
+
+	}
+	
+	
 
 }
