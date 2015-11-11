@@ -25,5 +25,11 @@ public class UsuarioController {
 		UsuarioDAO daoUsuario = new UsuarioDAO();
 		daoUsuario.insereUsuario(usuario);		
 	}
+	
+	public String usuarioAutentica() {
+		UsuarioDAO daoUsuario = new UsuarioDAO();
+		daoUsuario.buscaUsuarioId(usuario);
+		return "/painel.xhtml";
+	}
 	   
 }
