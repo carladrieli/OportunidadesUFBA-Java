@@ -29,7 +29,7 @@ public class UsuarioController {
 	public String usuarioAutentica() {
 		UsuarioDAO daoUsuario = new UsuarioDAO();
 		daoUsuario.buscaUsuarioId(usuario);
-		return "/painel.xhtml";
+		return "/painel_usuarios.xhtml";
 	}
 	   
 }
