@@ -28,4 +28,11 @@ public class Curso implements Serializable,SampleEntity{
 		this.area = area;
 	}
 	
+	@Override
+	public boolean equals(Object o){
+	   return(o instanceof Curso && ((Curso)o).getId().equals(this.getId()));
+	}
+	
+   
+	
 }

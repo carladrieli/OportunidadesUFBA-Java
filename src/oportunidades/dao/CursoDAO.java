@@ -99,4 +99,51 @@ public class CursoDAO {
 		return listaCurso;
 	}
 
+	public List<Curso> buscaCursoPorArea(int idArea) {
+
+		String sql = "SELECT id, nome FROM curso WHERE area_id = ?";
+
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		List<Curso> listaCurso = new ArrayList<Curso>();
+			
+
+		try {
+			if (connection == null) {
+				System.out.println("conexao null");
+				this.connection = new ConexaoDAO().getConexao();
+			}
+			
+			Curso curso = null;
+			stmt = connection.prepareStatement(sql);
+			System.out.println("Buscando cursos");
+			stmt.setInt(1, idArea);
+			rs = stmt.executeQuery(sql);
+			rs.beforeFirst();				
+			while (rs.next()) {
+							
+				curso = new Curso();
+				Integer id = (Integer) rs.getObject("id");				
+				curso.setId(id);				
+				String nome = rs.getString("nome");				
+				curso.setNome(nome);
+				
+				
+				listaCurso.add(curso);
+				
+			}
+			stmt.close();			 
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exceção ao buscar cursos.");
+			e.printStackTrace();
+		}
+		return listaCurso;
+	}
+
+	
+	
+	
+	
 }
