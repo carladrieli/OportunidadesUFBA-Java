@@ -20,19 +20,19 @@ public class CursoDAO {
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Exceção ao criar Conexao.");
+			System.out.println("Exceï¿½ï¿½o ao criar Conexao.");
 			e.printStackTrace();
 		}
 
 	}
 
-	public void insereCurso(Curso curso) {
+	public void insereCurso(Curso curso, int cursoId) {
 
 		String sql = "INSERT INTO curso"
-				+ "(nome, idArea)" + " values (?,?)";
+				+ "(nome, area_id)" + " values (?,?)";
 
 		PreparedStatement stmt = null;
-
+		System.out.println("inserindo!");
 		try {
 			if (connection == null) {
 				System.out.println("conexao null");
@@ -42,16 +42,15 @@ public class CursoDAO {
 			stmt = connection.prepareStatement(sql);
 			System.out.println("Inserindo curso");
 			stmt.setString(1, curso.getNome());
-			stmt.setLong(2, curso.getArea().getId());
-			
-			System.out.println(curso.getArea().getId());
+			System.out.println(cursoId);
+			stmt.setInt(2, cursoId);
 			stmt.execute();
 
 			stmt.close();
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Exceção ao inserir Curso.");
+			System.out.println("Exceï¿½ï¿½o ao inserir Curso.");
 			e.printStackTrace();
 		}
 
@@ -59,7 +58,7 @@ public class CursoDAO {
 
 	public List<Curso> buscaCurso() {
 
-		String sql = "SELECT id, nome, idArea FROM curso";
+		String sql = "SELECT id, nome, area_id FROM curso";
 
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -93,7 +92,7 @@ public class CursoDAO {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Exceção ao buscar cursos.");
+			System.out.println("Exceï¿½ï¿½o ao buscar cursos.");
 			e.printStackTrace();
 		}
 		return listaCurso;
@@ -136,7 +135,7 @@ public class CursoDAO {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Exceção ao buscar cursos.");
+			System.out.println("Exceï¿½ï¿½o ao buscar cursos.");
 			e.printStackTrace();
 		}
 		return listaCurso;

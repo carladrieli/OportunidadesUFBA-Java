@@ -30,9 +30,10 @@
 									<div class="form-group">
 										<label class="form-label" for="field-1">Área</label>
 										<h:selectOneMenu styleClass="form-control"
-											value="#{cursoController.curso.area}" converter="generic">
+											value="#{cursoController.cursoId}">
+											<f:selectItem itemLabel="Selecione uma Área" noSelectionOption="true"/>
 											<f:selectItems value="#{areaController.buscaArea()}" var="area"
-												itemValue="#{area}" itemLabel="#{area.nome}"  />
+												itemValue="#{area.id}" itemLabel="#{area.nome}"  />
 										</h:selectOneMenu>
 									</div>
 
@@ -42,8 +43,6 @@
 							</div>
 						</div>
 					</div>
-
-
 				</section>
 			</section>
 			</ui:composition>

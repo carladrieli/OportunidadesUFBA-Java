@@ -40,9 +40,10 @@
 					<div class="form-group">
 						<label class="form-label" for="field-1">Curso</label>
 						<h:selectOneMenu styleClass="form-control"
-							value="#{alunoController.aluno.curso}" converter="generic">
+							value="#{alunoController.cursoId}">
+							<f:selectItem itemLabel="Selecione uma Curso" noSelectionOption="true"/>
 							<f:selectItems value="#{cursoController.buscaCurso()}"
-								var="curso" itemValue="#{curso}" itemLabel="#{curso.nome}" />
+								var="curso" itemValue="#{curso.id}" itemLabel="#{curso.nome}" />
 						</h:selectOneMenu>
 					</div>
 					<div class="form-group">

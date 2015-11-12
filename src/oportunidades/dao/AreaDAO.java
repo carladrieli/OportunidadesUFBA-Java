@@ -30,15 +30,17 @@ public class AreaDAO {
 		Statement stmt = null;
 		ResultSet rs = null;
 		List<Area> listaArea = new ArrayList<Area>();
-
+		
+		System.out.println("BuscaArea!");
 		try {
 			if (connection == null) {
 				System.out.println("conexao null");
 				this.connection = new ConexaoDAO().getConexao();
+			}
 
 				Area area = null;
 				stmt = connection.createStatement();
-				System.out.println("Buscando áreas");
+				System.out.println("Buscando ï¿½reas");
 				rs = stmt.executeQuery(sql);
 				rs.beforeFirst();
 				while (rs.next()) {
@@ -47,7 +49,6 @@ public class AreaDAO {
 					Integer idArea = (Integer) rs.getObject("id");
 					System.out.println(idArea);
 					area.setId(idArea);
-
 					String nomeArea = rs.getString("nome");
 					System.out.println(nomeArea);
 					area.setNome(nomeArea);
@@ -56,11 +57,9 @@ public class AreaDAO {
 
 				}
 				stmt.close();
-
-			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Exceção ao buscar áreas.");
+			System.out.println("Exceï¿½ï¿½o ao buscar ï¿½reas.");
 			e.printStackTrace();
 		}
 		return listaArea;

@@ -27,7 +27,7 @@ public class UsuarioDAO {
 	public void insereUsuario(Usuario usuario) {
 
 		String sql = "INSERT INTO usuario"
-				+ "(nome, senha, email, tipo, descricaoPerfil)" + " values (?,?,?,?,?)";
+				+ "(nome, senha, descricaoPerfil, tipousuario_id, contato_idcontato, email)" + " values (?,?,?,?,?,?)";
 
 		PreparedStatement stmt = null;
 
@@ -41,9 +41,14 @@ public class UsuarioDAO {
 			System.out.println("Inserindo usuario");
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getSenha());
-			stmt.setString(3, usuario.getEmail());
+			stmt.setString(3, usuario.getDescricaoPerfil());
+			System.out.println("Inserindo usuario2");
 			stmt.setInt(4, usuario.getTipo());
-			stmt.setString(5, usuario.getDescricaoPerfil());
+			System.out.println("Inserindo usuario3");
+			stmt.setInt(5, 1);
+			System.out.println("Inserindo usuario4");
+			stmt.setString(6, usuario.getEmail());
+			System.out.println("Inserindo usuario5");
 
 			stmt.execute();
 
@@ -60,7 +65,7 @@ public class UsuarioDAO {
 	public void insereUsuarioProfessor(Usuario usuario) {
 
 		String sql = "INSERT INTO usuario"
-				+ "(nome, senha, email, tipo, descricaoPerfil)" + " values (?,?,?,?,?)";
+				+ "(nome, senha, email, tipousuario_id, descricaoPerfil)" + " values (?,?,?,?,?)";
 
 		PreparedStatement stmt = null;
 
@@ -93,7 +98,7 @@ public class UsuarioDAO {
 	public void insereUsuarioEmpresa(Usuario usuario) {
 
 		String sql = "INSERT INTO usuario"
-				+ "(nome, senha, email, tipo, descricaoPerfil)" + " values (?,?,?,?,?)";
+				+ "(nome, senha, email, tipousuario_id, descricaoPerfil)" + " values (?,?,?,?,?)";
 
 		PreparedStatement stmt = null;
 
