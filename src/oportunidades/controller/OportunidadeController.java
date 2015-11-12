@@ -1,7 +1,8 @@
 package oportunidades.controller;
 
-import javax.faces.bean.ManagedBean;
+import java.util.List;
 
+import javax.faces.bean.ManagedBean;
 import oportunidades.dao.OportunidadeDAO;
 import oportunidades.model.Oportunidade;
 
@@ -9,6 +10,7 @@ import oportunidades.model.Oportunidade;
 public class OportunidadeController {		 
 
 		private Oportunidade oportunidade = new Oportunidade();
+		private List<Oportunidade> listaOportunidade = null;
 
 		public Oportunidade getOportunidade() {
 			return oportunidade;
@@ -26,10 +28,9 @@ public class OportunidadeController {
 			
 		}
 		
-		public Oportunidade buscaOportunidade() throws Exception{
+		public List<Oportunidade> buscaOportunidade() throws Exception{
 			OportunidadeDAO daoOportunidade = new OportunidadeDAO();
-			daoOportunidade.buscaOportunidade(oportunidade);
-			return oportunidade;
-			
+			listaOportunidade = daoOportunidade.listaOportunidade();
+			return listaOportunidade;
 		}
 }
