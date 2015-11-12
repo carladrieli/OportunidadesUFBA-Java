@@ -78,18 +78,14 @@ public class OportunidadeDAO {
 
 			Oportunidade oportunidade = null;
 			stmt = connection.createStatement();
-			System.out.println("Buscando oportunidades");
 			rs = stmt.executeQuery(sql);
 			rs.beforeFirst();				
 			while (rs.next()) {
-							
 				oportunidade = new Oportunidade();
 				Integer id = (Integer) rs.getObject("id");				
 				oportunidade.setId(id);				
 				String nome = rs.getString("nome");				
-				oportunidade.setNome(nome);
-				
-				
+				oportunidade.setNome(nome);				
 				listaOportunidade.add(oportunidade);
 			}
 			stmt.close();		
