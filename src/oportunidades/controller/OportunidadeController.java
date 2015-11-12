@@ -28,8 +28,7 @@ public class OportunidadeController {
 		
 		public Oportunidade buscaOportunidade() throws Exception{
 			OportunidadeDAO daoOportunidade = new OportunidadeDAO();
-			daoOportunidade.buscaOportunidade(oportunidade);
+			daoOportunidade.listaOportunidade();
 			return oportunidade;
-			
 		}
 }
