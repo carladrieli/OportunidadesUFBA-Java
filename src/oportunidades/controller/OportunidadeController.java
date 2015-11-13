@@ -44,17 +44,23 @@ public class OportunidadeController {
 			return listaOportunidade;
 		}
 		
+		public List<Curso> buscaCurso() throws Exception {
+			CursoDAO daoCurso = new CursoDAO();
+			listaCurso = daoCurso.buscaCurso();
+			return listaCurso;
+		}
+		
 		public List<Curso> buscaCursoArea() throws Exception {
 			CursoDAO daoCurso = new CursoDAO();
 			System.out.println(areaId);
-			listaCurso = daoCurso.buscaCursoArea(area.getId());
+			listaCurso = daoCurso.buscaCursoArea(areaId);
 			return listaCurso;
 		}
 		
 		public void listaCursos(AjaxBehaviorEvent event) {
 			CursoDAO daoCurso = new CursoDAO();
-			System.out.println("Listacurso Oportunidade");
-			//listaCurso = daoCurso.buscaCursoArea(curso.getArea().getId());
+			System.out.println("Listacurso Oportunidade !!!");
+			listaCurso = daoCurso.buscaCursoArea(areaId);
 		}
 
 		public int getAreaId() {

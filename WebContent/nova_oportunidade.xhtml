@@ -19,71 +19,24 @@
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="pagina">
 			<div class="col-md-8 col-sm-9 col-xs-10">
-				<form>
-					<div class="form-group">
-						<label class="form-label" for="field-1">Título</label>
-						<h:inputText value="#{oportunidadeController.oportunidade.nome}"
-							class="form-control" id="titulo-oportunidade" />
-					</div>
-						
-					<div class="form-group">
-						<label class="form-label" for="field-1">Área</label>
-						
-						<h:selectOneMenu styleClass="form-control"
-							value="#{oportunidadeController.listaCurso}" >
-							
-							<f:selectItem itemLabel="Selecione uma Área" noSelectionOption="true"/>
-							<f:selectItems value="#{areaController.buscaArea()}" var="area"
-								itemValue="#{area.id}" itemLabel="#{area.nome}" />
-							<p:ajax listener="#{oportunidadeController.listaCursos}" event="change" render="cursos" immediate="true" />
-						</h:selectOneMenu>
-						
-					</div>
-					
-					<div class="form-group">
-						<label class="form-label" for="field-1">Cursos</label>
-						
-						<h:selectManyCheckbox id="cursos"
-							layout="grid" columns="4"
-							> 
-							
-							<f:selectItems
-								value="#{oportunidadeController.listaCursos()}"
-								var="curso" itemValue="#{curso.id}" itemLabel="#{curso.nome}" />
-						</h:selectManyCheckbox>
-						
-					</div>
+				<h:form>
+					<h:panelGrid columns="100">
+ 					<h:outputLabel value="Pais"/>
+ 					<h:selectOneMenu value="#{oportunidadeBean.areaId}">
+ 						<f:selectItem itemLabel="Selecione aqui o Pais" noSelectionOption="true"/>
+ 						<f:selectItems value="#{oportunidadeBean.buscaArea()}"
+ 							var="area" itemLabel="#{area.nome}" itemValue="#{area.id}" />
+ 						<p:ajax event="change" update="id" listener="#{oportunidadeBean.listaCursos}"/>
+ 					</h:selectOneMenu>
+ 					
+ 					<h:outputLabel value="Cidade"/>
+ 					<h:selectManyCheckbox id="id" value="#{oportunidadeBean.curso.nome}">
+ 						<f:selectItems value="#{oportunidadeBean.listaCurso}" var="curso" 
+ 							itemLabel="#{curso.nome}" itemValue="#{curso.id}"/>
+ 					</h:selectManyCheckbox>
+ 					</h:panelGrid>
 
-
-
-					<div class="form-group">
-						<label>Remuneração</label>
-						<div class="input-group">
-							<div class="input-group-addon">R$</div>
-							<h:inputText
-								value="#{oportunidadeController.oportunidade.remuneracao}"
-								class="form-control" id="remuneracao-oportunidade" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label>Carga Horária</label>
-						<div class="input-group">
-							<h:inputText
-								value="#{oportunidadeController.oportunidade.carga_horaria}"
-								class="form-control" id="carga-horaria-oportunidade" />
-							<div class="input-group-addon">H</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="form-label" for="field-1">Descrição</label>
-						<h:inputTextarea
-							value="#{oportunidadeController.oportunidade.descricao}"
-							class="form-control" id="descricao-oportunidade" rows="5" />
-					</div>
-					<h:commandButton value="Cadastrar" class="btn"
-						action="#{oportunidadeController.insereOportunidade}" />
-
-				</form>
+				</h:form>
 			</div>
 		</div>
 	</div>

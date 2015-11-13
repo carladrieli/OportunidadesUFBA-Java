@@ -29,7 +29,7 @@ public class OportunidadeDAO {
 	public Oportunidade insereOportunidade(Oportunidade oportunidade) {
 
 		String sql = "INSERT INTO oportunidade"
-				+ "(nome, remuneracao, cargaHoraria, descricao)" + " values (?,?,?,?)";
+				+ "(nome, remuneracao, cargaHoraria, descricao, instituicao_idinstituicao, instituicao_usuario_id)" + " values (?,?,?,?,?,?)";
 
 		PreparedStatement stmt = null;
 
@@ -45,6 +45,8 @@ public class OportunidadeDAO {
 			stmt.setFloat(2, oportunidade.getRemuneracao());
 			stmt.setInt(3, oportunidade.getCarga_horaria());			
 			stmt.setString(4, oportunidade.getDescricao());
+			stmt.setInt(5, 1); //busca oh id logado da instituicao
+			stmt.setInt(6, 1); 
 
 			if (stmt.execute()) {
 				return oportunidade;				
