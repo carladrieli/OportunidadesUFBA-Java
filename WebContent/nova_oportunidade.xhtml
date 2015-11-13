@@ -29,20 +29,21 @@
 					<div class="form-group">
 						<label class="form-label" for="field-1">Área</label>
 						<h:selectOneMenu styleClass="form-control"
-							value="#{areaController.area}" converter="generic">
-							<p:ajax listener="#{cursoController.onAreaChange(cursoController.curso.area)}" update="cursos" />
+							value="#{cursoController.area}" >
+							<f:selectItem itemLabel="Selecione uma Área" noSelectionOption="true"/>
 							<f:selectItems value="#{areaController.buscaArea()}" var="area"
-								itemValue="#{area}" itemLabel="#{area.nome}" />
+								itemValue="#{area.id}" itemLabel="#{area.nome}" />
+							<p:ajax listener="#{cursoController.listaCursos}" event="change" render="cursos" />
 						</h:selectOneMenu>
 					</div>
 					<div class="form-group">
 						<label class="form-label" for="field-1">Cursos</label>
 						<h:selectManyCheckbox id="cursos"
-							value="#{cursoController.curso}" converter="generic"
-							layout="grid" columns="4">
+							layout="grid" columns="4"
+							value="#{cursoController.listaCurso}"> 
 							<f:selectItems
-								value="#{cursoController.buscaCurso()}"
-								var="curso" itemLabel="#{curso.nome}" itemValue="#{curso}" />
+								value="#{cursoController.listaCursos()}"
+								var="curso" itemValue="#{curso.id}" itemLabel="#{curso.nome}" />
 						</h:selectManyCheckbox>
 					</div>
 

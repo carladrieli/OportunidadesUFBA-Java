@@ -11,6 +11,7 @@ public class OportunidadeController {
 
 		private Oportunidade oportunidade = new Oportunidade();
 		private List<Oportunidade> listaOportunidade = null;
+		private int areaId;
 
 		public Oportunidade getOportunidade() {
 			return oportunidade;
@@ -32,5 +33,13 @@ public class OportunidadeController {
 			OportunidadeDAO daoOportunidade = new OportunidadeDAO();
 			listaOportunidade = daoOportunidade.listaOportunidade();
 			return listaOportunidade;
+		}
+
+		public int getAreaId() {
+			return areaId;
+		}
+
+		public void setAreaId(int areaId) {
+			this.areaId = areaId;
 		}
 }
