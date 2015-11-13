@@ -18,6 +18,7 @@ public class CursoController {
 
 	private Curso curso = new Curso();
 	private List<Curso> listaCurso = null;
+	private int cursoId;
 
 	public Curso getCurso() {
 		return curso;
@@ -27,12 +28,14 @@ public class CursoController {
 		this.curso = curso;
 	}
 
-	public String insereCurso() throws Exception {
+	public String insereCurso() throws Exception{
+		System.out.println("chegando insereCurso!");
 		CursoDAO daoCurso = new CursoDAO();
-		daoCurso.insereCurso(curso);
-		return curso.getNome();
-
+		System.out.println(cursoId);
+		daoCurso.insereCurso(curso, cursoId);
+		return "index.xhtml";			
 	}
+	
 
 	public List<Curso> buscaCurso() throws Exception {
 		CursoDAO daoCurso = new CursoDAO();
@@ -42,6 +45,7 @@ public class CursoController {
 
 	
 	public List<Curso> onAreaChange(Area area) {
+		System.out.println("#####%$!@ opa onAreaChange!");
 		
 		List<Curso> listaCurso = new ArrayList<Curso>();
 
@@ -51,6 +55,14 @@ public class CursoController {
 			return listaCurso;
 		} else
 			return new ArrayList<Curso>();		
+	}
+
+	public int getCursoId() {
+		return cursoId;
+	}
+
+	public void setCursoId(int cursoId) {
+		this.cursoId = cursoId;
 	}
 
 }

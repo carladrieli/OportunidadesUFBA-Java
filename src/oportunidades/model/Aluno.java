@@ -9,6 +9,7 @@ public class Aluno extends Usuario {
 	private Usuario usuario;
 	private String semestre;
 	private String matricula;
+	private String semestreEntrada;
 	private String previsaoConclusao;
 	private Curso curso;
 		
@@ -41,6 +42,12 @@ public class Aluno extends Usuario {
 	}
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+	public String getSemestreEntrada() {
+		return semestreEntrada;
+	}
+	public void setSemestreEntrada(String semestreEntrada) {
+		this.semestreEntrada = semestreEntrada;
 	}
 	
 }

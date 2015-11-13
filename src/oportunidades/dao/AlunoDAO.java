@@ -23,10 +23,10 @@ public class AlunoDAO {
 
 	}
 
-	public void insereAluno(Aluno aluno) {
+	public void insereAluno(Aluno aluno, int cursoId) {
 		
 		String sql = "INSERT INTO aluno"
-				+ "(idusuario, semestre, matricula, previsaoConclusao, idcurso)"
+				+ "(semestre, matricula, previsaoConclusao, usuario_id, curso_id)"
 				+ " values (?,?,?,?,?)";
 
 		PreparedStatement stmt = null;
@@ -48,14 +48,12 @@ public class AlunoDAO {
 			
 			stmt = connection.prepareStatement(sql);
 			
-			stmt.setInt(1, aux.getId());
-			stmt.setString(2, aluno.getSemestre());
-			stmt.setString(3, aluno.getMatricula());
-			stmt.setString(4, aluno.getPrevisaoConclusao());
-			stmt.setInt(5, 4);
+			stmt.setString(1, aluno.getSemestre());
+			stmt.setString(2, aluno.getMatricula());
+			stmt.setString(3, aluno.getPrevisaoConclusao());
+			stmt.setInt(4, aux.getId());
+			stmt.setInt(5, cursoId);
 
-			//stmt1.execute();
-			//stmt1.close();
 			stmt.execute();
 
 			stmt.close();
