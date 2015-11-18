@@ -19,14 +19,6 @@ public class OportunidadeController {
 		public void setOportunidade(Oportunidade oportunidade){
 			this.oportunidade = oportunidade;
 		}
-			
-		
-		public Oportunidade insereOportunidade() throws Exception{
-			OportunidadeDAO daoOportunidade = new OportunidadeDAO();
-			oportunidade = daoOportunidade.insereOportunidade(oportunidade);
-			return oportunidade;
-			
-		}
 		
 		public List<Oportunidade> buscaOportunidade() throws Exception{
 			OportunidadeDAO daoOportunidade = new OportunidadeDAO();

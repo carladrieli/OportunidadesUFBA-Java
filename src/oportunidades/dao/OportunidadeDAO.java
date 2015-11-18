@@ -7,9 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import oportunidades.model.Curso;
 import oportunidades.model.Oportunidade;
-import sun.misc.Cleaner;
 
 public class OportunidadeDAO {
 	
