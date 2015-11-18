@@ -25,7 +25,6 @@
 						<h:inputText value="#{oportunidadeBean.oportunidade.nome}"
 							class="form-control" id="titulo-oportunidade" />
 					</div>
-						
 					<div class="form-group">
 						<label class="form-label" for="field-1">Área</label>
 						<h:selectOneMenu styleClass="form-control"
@@ -36,16 +35,17 @@
 							<p:ajax event="change" update="cursos" listener="#{oportunidadeBean.listaCursos}"/>
 						</h:selectOneMenu>
 					</div>
+					
 					<div class="form-group">
 						<label class="form-label" for="field-1">Cursos</label>
 						<h:selectManyCheckbox id="cursos"
-							value="#{oportunidadeBean.curso.nome}">
+							value="#{oportunidadeBean.listaCursoSelecionados}">
 							<f:selectItems
 								value="#{oportunidadeBean.listaCurso}"
 								var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.id}" />
 						</h:selectManyCheckbox>
 					</div>
-
+					
 					<div class="form-group">
 						<label>Remuneração</label>
 						<div class="input-group">
@@ -71,7 +71,8 @@
 							class="form-control" id="descricao-oportunidade" rows="5" />
 					</div>
 					<h:commandButton value="Cadastrar" class="btn"
-						action="#{oportunidadeBean.insereOportunidade}" />
+						action="#{oportunidadeBean.insereOportunidade}">
+					</h:commandButton>
 
 				</h:form>
 			</div>

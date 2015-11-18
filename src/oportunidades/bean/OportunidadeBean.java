@@ -1,9 +1,16 @@
 package oportunidades.bean;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import oportunidades.dao.AreaDAO;
 import oportunidades.dao.CursoDAO;
@@ -13,15 +20,29 @@ import oportunidades.model.Curso;
 import oportunidades.model.Oportunidade;
 
 @ManagedBean (name = "oportunidadeBean")
+@SessionScoped
 public class OportunidadeBean {
 	
 	private Oportunidade oportunidade = new Oportunidade();
-	private Curso curso = new Curso();;
-	private Area area = new Area();;
+	private Curso curso = new Curso();
+	private Area area = new Area();
 	private List<Curso> listaCurso = null;
 	private List<Area> listaArea = null;
+	private String[] listaCursoSelecionados;
 	private int areaId;
-	
+
+	public OportunidadeBean () {
+
+	}
+
+	public String[] getListaCursoSelecionados() {
+		return listaCursoSelecionados;
+	}
+
+	public void setListaCursoSelecionados(String[] listaCursoSelecionados) {
+		this.listaCursoSelecionados = listaCursoSelecionados;
+	}
+
 	public Oportunidade getOportunidade() {
 		return oportunidade;
 	}
@@ -47,6 +68,9 @@ public class OportunidadeBean {
 	}
 	
 	public List<Curso> getListaCurso() {
+		if (listaCurso == null){
+			listaCurso = new ArrayList<Curso>();
+		}
 		return listaCurso;
 	}
 
@@ -79,16 +103,18 @@ public class OportunidadeBean {
 	
 	public void listaCursos(final AjaxBehaviorEvent event) {
 		CursoDAO daoCurso = new CursoDAO();
-		System.out.println("Lista cursos OportunidadeBean+ !!!");
-		System.out.println(areaId);
 		listaCurso = daoCurso.buscaCursoArea(areaId);
 	}
 	
-	public Oportunidade insereOportunidade() throws Exception{
-		System.out.println("InsereOportunidade Bean!");
+	
+	public String insereOportunidade() {
+		System.out.println("InsereOportunidade BeaN			!");
+		int a = listaCursoSelecionados.length;
+		System.out.println("Quantidad de cursos: " + a);
 		OportunidadeDAO daoOportunidade = new OportunidadeDAO();
-		oportunidade = daoOportunidade.insereOportunidade(oportunidade);
-		return oportunidade;
+		oportunidade = daoOportunidade.insereOportunidade(oportunidade, listaCursoSelecionados);
+		return "painel_admin.xhtml?faces-redirect=true";
+		
 	}
 
 }
