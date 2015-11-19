@@ -1,10 +1,12 @@
 package oportunidades.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import oportunidades.model.Area;
 
 public class AreaDAO {
@@ -22,7 +24,36 @@ public class AreaDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public Area insereArea(Area area) {
+		
+		String sql = "INSERT INTO area (nome)" + " values (?);";
 
+		PreparedStatement stmt = null;
+
+		try {
+			if (connection == null) {
+				System.out.println("conexao null");
+				this.connection = new ConexaoDAO().getConexao();
+			}
+			
+			
+			System.out.println("Inserindo Area");
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, area.getNome());
+			
+			stmt.execute();			
+			System.out.println("Inserido area com sucesso");
+			stmt.close();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Excecao ao inserir Area.");
+			e.printStackTrace();
+		}
+		
+		return area;
+	}
 	public List<Area> buscaArea() {
 
 		String sql = "SELECT id, nome, descricao FROM area";
