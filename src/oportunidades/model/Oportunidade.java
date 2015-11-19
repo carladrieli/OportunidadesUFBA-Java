@@ -1,6 +1,5 @@
 package oportunidades.model;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class Oportunidade {
@@ -8,7 +7,7 @@ public class Oportunidade {
 	private int id;
 	private String nome;
 	private float remuneracao;
-	private int carga_horaria;
+	private float carga_horaria;
 	private String descricao;
 	private List<Curso> cursos;
 	
@@ -31,10 +30,10 @@ public class Oportunidade {
 	public void setRemuneracao(float remuneracao) {
 		this.remuneracao = remuneracao;
 	}
-	public int getCarga_horaria() {
+	public float getCarga_horaria() {
 		return carga_horaria;
 	}
-	public void setCarga_horaria(int carga_horaria) {
+	public void setCarga_horaria(float carga_horaria) {
 		this.carga_horaria = carga_horaria;
 	}
 	public String getDescricao() {

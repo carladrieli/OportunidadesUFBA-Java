@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import oportunidades.dao.AreaDAO;
@@ -24,13 +23,31 @@ public class OportunidadeBean {
 	private Area area = new Area();
 	private List<Curso> listaCurso = null;
 	private List<Area> listaArea = null;
+	private List<Oportunidade> listaOportunidade = null;
 	private String[] listaCursoSelecionados;
 	private int areaId;
 
 	public OportunidadeBean () {
 
 	}
-	
+	 
+
+	public List<Oportunidade> getListaOportunidade() {
+		System.out.println("Getting Lista Oporutnidade");
+		if (listaOportunidade == null){
+			OportunidadeDAO daoOportunidade = new OportunidadeDAO();
+			this.listaOportunidade = daoOportunidade.listaOportunidade();
+			System.out.println(listaOportunidade);
+		}
+		return listaOportunidade;
+	}
+
+
+	public void setListaOportunidade(List<Oportunidade> listaOportunidade) {
+		System.out.println("Setting ListandoOportunidades !");
+		this.listaOportunidade = listaOportunidade;
+	}
+
 
 	public String[] getListaCursoSelecionados() {
 		return listaCursoSelecionados;
@@ -105,12 +122,17 @@ public class OportunidadeBean {
 	
 	public String insereOportunidade() {
 		System.out.println("InsereOportunidade BeaN			!");
-		int a = listaCursoSelecionados.length;
-		System.out.println("Quantidad de cursos: " + a);
 		OportunidadeDAO daoOportunidade = new OportunidadeDAO();
 		oportunidade = daoOportunidade.insereOportunidade(oportunidade, listaCursoSelecionados);
 		resetBean();
 		return "painel_admin.xhtml?faces-redirect=true";
+	}
+	
+	public List<Oportunidade> listaOportunidade() {
+		System.out.println("ListandoOportunidades !");
+		//OportunidadeDAO daoOportunidade = new OportunidadeDAO();
+		//listaOportunidade = daoOportunidade.listaOportunidade();
+		return getListaOportunidade();
 	}
 	
 	public void resetBean() {

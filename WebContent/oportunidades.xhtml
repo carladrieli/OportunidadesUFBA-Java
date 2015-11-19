@@ -18,6 +18,63 @@
 						</div>
 				  	</div>
 				</div>
+				<h:dataTable value="#{oportunidadeBean.listaOportunidade}" var="oportunidade" cellpadding="5">
+						<h:column>
+							<div class="col-md-10">
+								<div class="panel panel-default">
+									<f:facet name="header">
+									</f:facet>
+									<f:facet name="content">
+									</f:facet>
+									<f:facet name="footer">
+									</f:facet>
+									<h:column headerClass="panel-title">
+						 				<div class="panel-heading">
+											<h1 class="panel-title">#{oportunidade.nome}</h1>
+										</div>
+									</h:column>						
+									<h:column>
+										<div class="panel-body">
+											<h:column>
+												<div class="row">						
+													<h:column>
+														<div class="col-md-3">
+															<h4>Tipo</h4>
+															<p>Estágio</p>
+														</div>
+													</h:column>
+													<h:column>
+														<div class="col-md-3">
+															<h4>Curso</h4>
+															<p>SI</p>
+														</div>
+													</h:column>
+													<h:column>
+														<div class="col-md-3">
+															<h4>Valor</h4>
+															<p>#{oportunidade.remuneracao}</p>
+														</div>
+													</h:column>
+													<h:column>
+														<div class="col-md-3">
+															<h4>Carga Horária</h4>
+															<p>#{oportunidade.carga_horaria}</p>
+														</div>
+													</h:column>
+													<h:column>
+														<div class="col-md-10">
+															<h4>Descrição</h4>
+															<p>#{oportunidade.descricao}</p>
+														</div>
+													</h:column>
+												</div>
+											</h:column>
+										</div>
+									</h:column>
+								</div>
+							</div>
+						</h:column>
+				</h:dataTable>
 					<div class="col-md-2">
 						<div class="panel panel-default">
 							<div class="row">

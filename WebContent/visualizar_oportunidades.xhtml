@@ -8,9 +8,21 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	lang="pt">
+	
+	<ui:define name="topo">
+		<ui:include src="/topo.xhtml"></ui:include>
+	</ui:define>
 
+	<ui:define name="menu">
+		<ui:include src="/menu.xhtml"/>
+	</ui:define>
+	
 	<ui:define name="conteudo">
 		<ui:include src="/oportunidades.xhtml"/>
+	</ui:define>
+	
+	<ui:define name="rodape">
+		<ui:include src="/rodape.xhtml"></ui:include>
 	</ui:define>
 	
 </ui:composition>

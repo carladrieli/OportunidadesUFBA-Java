@@ -33,7 +33,7 @@ public class CursoController {
 		CursoDAO daoCurso = new CursoDAO();
 		System.out.println(cursoId);
 		daoCurso.insereCurso(curso, cursoId);
-		return "index.xhtml";			
+		return "painel_admin.xhtml?faces-redirect=true";			
 	}
 	
 
