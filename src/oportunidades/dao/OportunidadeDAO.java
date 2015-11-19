@@ -122,9 +122,9 @@ public class OportunidadeDAO {
 				CursoDAO cursoDao = new CursoDAO();
 				oportunidade.setCursos(cursoDao.buscaListaCursoHasOportunidade(id_oportunidade));
 				System.out.println("Voltando DAO buscaCursoHasOportunidade");
-				System.out.println(oportunidade.getCursos());
 				listaOportunidade.add(oportunidade);
 			}
+			this.connection.close();
 			stmt.close();
 			
 		

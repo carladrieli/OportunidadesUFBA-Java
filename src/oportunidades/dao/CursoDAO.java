@@ -145,7 +145,7 @@ public class CursoDAO {
 				System.out.println("Adicionando Lista cursos nome");
 				listaCurso.add(curso);
 			}
-			
+			this.connection.close();
 			stmt.close();			 
 			
 		} catch (Exception e) {
