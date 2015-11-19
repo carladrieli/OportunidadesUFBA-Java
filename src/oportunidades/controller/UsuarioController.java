@@ -23,7 +23,8 @@ public class UsuarioController {
 	
 	public void insereUsuario() throws Exception {
 		UsuarioDAO daoUsuario = new UsuarioDAO();
-		daoUsuario.insereUsuario(usuario);		
+		daoUsuario.insereUsuario(usuario);
+		resetBean();
 	}
 	
 	public String insereUsuarioProfessor() throws Exception {
@@ -36,6 +37,10 @@ public class UsuarioController {
 		UsuarioDAO daoUsuario = new UsuarioDAO();
 		daoUsuario.buscaUsuarioId(usuario);
 		return "/painel_usuarios.xhtml";
+	}
+	
+	public void resetBean() {
+		usuario = new Usuario();
 	}
 	   
 }
