@@ -97,6 +97,64 @@ public class CursoDAO {
 		}
 		return listaCurso;
 	}
+	
+	public List<Curso> buscaListaCursoHasOportunidade(int oportunidade_id) {
+
+		String sql = "SELECT curso_id FROM curso_has_oportunidade WHERE oportunidade_id = " + oportunidade_id +";";
+
+		Statement stmt = null;
+		ResultSet rs = null;
+		List<Curso> listaCurso = new ArrayList<Curso>();
+			
+
+		try {
+			if (connection == null) {
+				System.out.println("conexao null");
+				this.connection = new ConexaoDAO().getConexao();
+			}
+			
+			Curso curso = null;
+			stmt = connection.createStatement();
+			System.out.println("Buscando curso_has_oportunidade");
+			rs = stmt.executeQuery(sql);
+			rs.beforeFirst();				
+			while (rs.next()) {
+							
+				curso = new Curso();
+				Integer id = (Integer) rs.getObject("curso_id");				
+				
+				//curso.setId(id);
+				
+				String sql1 = "SELECT nome FROM curso WHERE id = " + id +";";
+				Statement stmt1 = null;
+				ResultSet rs1 = null;
+				stmt1 = connection.createStatement();
+				
+				System.out.println("Buscando curso id");
+				rs1 = stmt1.executeQuery(sql1);
+				rs1.beforeFirst();	
+				
+				while (rs1.next()) {
+					System.out.println("Buscando curso nome####");
+					String nome = rs1.getString("nome");
+					System.out.println(nome);
+					curso.setNome(nome);
+				}
+				
+				stmt1.close();
+				System.out.println("Adicionando Lista cursos nome");
+				listaCurso.add(curso);
+			}
+			
+			stmt.close();			 
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exce��o ao buscar cursos has oportunidade.");
+			e.printStackTrace();
+		}
+		return listaCurso;
+	}
 
 	public List<Curso> buscaCursoPorArea(int idArea) {
 

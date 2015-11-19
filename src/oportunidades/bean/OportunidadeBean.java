@@ -130,8 +130,6 @@ public class OportunidadeBean {
 	
 	public List<Oportunidade> listaOportunidade() {
 		System.out.println("ListandoOportunidades !");
-		//OportunidadeDAO daoOportunidade = new OportunidadeDAO();
-		//listaOportunidade = daoOportunidade.listaOportunidade();
 		return getListaOportunidade();
 	}
 	

@@ -46,7 +46,9 @@
 													<h:column>
 														<div class="col-md-3">
 															<h4>Curso</h4>
-															<p>SI</p>
+															<ui:repeat value="#{oportunidade.cursos}" var="curso">
+																#{curso.nome}
+															</ui:repeat>
 														</div>
 													</h:column>
 													<h:column>

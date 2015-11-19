@@ -108,8 +108,8 @@ public class OportunidadeDAO {
 			rs.beforeFirst();				
 			while (rs.next()) {
 				oportunidade = new Oportunidade();
-				Integer id = (Integer) rs.getObject("id");				
-				oportunidade.setId(id);				
+				Integer id_oportunidade = (Integer) rs.getObject("id");				
+				oportunidade.setId(id_oportunidade);				
 				String nome = rs.getString("nome");				
 				oportunidade.setNome(nome);
 				Float remuneracao = rs.getFloat("remuneracao");
@@ -118,6 +118,11 @@ public class OportunidadeDAO {
 				oportunidade.setCarga_horaria(carga_horaria);
 				String descricao = rs.getString("descricao");
 				oportunidade.setDescricao(descricao);
+				//busca os cursos
+				CursoDAO cursoDao = new CursoDAO();
+				oportunidade.setCursos(cursoDao.buscaListaCursoHasOportunidade(id_oportunidade));
+				System.out.println("Voltando DAO buscaCursoHasOportunidade");
+				System.out.println(oportunidade.getCursos());
 				listaOportunidade.add(oportunidade);
 			}
 			stmt.close();
