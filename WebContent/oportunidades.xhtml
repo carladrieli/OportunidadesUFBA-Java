@@ -18,16 +18,50 @@
 						</div>
 				  	</div>
 				</div>
-				<h:dataTable value="#{oportunidadeBean.listaOportunidade}" var="oportunidade" cellpadding="5">
+				<h:dataTable value="#{oportunidadeBean.listaOportunidade}" var="oportunidade">
+					<h:column>
+						<div class="col-md-6">
+							<h:column>
+								<div class="panel panel-default">
+									<h:column>
+										<div class="row">
+											<h:column>
+												<div class="col-xs-6 col-md-12">
+													<a class="mbf" href="/coobo">
+														<span class="square-image panel-cover mbf square" data-component="Logo" style="background-image: url(https://99prod.s3.amazonaws.com/uploads/image/file/305939/regular_marca-vertical.png);">
+															<span class="square-container">
+																<h:column>
+																	<div class="uploadbox-image-container" width="250" height="250">
+																		<img width="250" height="250" class="img-responsive" src="http://www.apbspeakers.com/files/images/careers_workingpeople.png" alt="Regular marca vertical"></img>
+																	</div>
+																</h:column>
+															</span>
+														</span>
+													</a>
+												</div>
+												<h:column>
+													<div class="col-xs-6 col-md-12">
+														<h:column>
+															<div class="panel-body">
+																<ui:repeat value="#{oportunidade.cursos}" var="curso">
+																	<h1 class="panel-title">#{curso.nome}</h1>
+																</ui:repeat>
+																<!-- <address><i class="fa fa-map-marker"></i> Rio de Janeiro, RJ</address> -->
+															</div>
+														</h:column>
+													</div>
+												</h:column>
+											</h:column>
+											
+										</div>
+									</h:column>
+								</div>
+							</h:column>
+						</div>
+					</h:column>
 						<h:column>
 							<div class="col-md-10">
 								<div class="panel panel-default">
-									<f:facet name="header">
-									</f:facet>
-									<f:facet name="content">
-									</f:facet>
-									<f:facet name="footer">
-									</f:facet>
 									<h:column headerClass="panel-title">
 						 				<div class="panel-heading">
 											<h1 class="panel-title">#{oportunidade.nome}</h1>
@@ -72,83 +106,28 @@
 												</div>
 											</h:column>
 										</div>
+										<h:column>
+											<div class="panel-footer">
+												<h:column>
+													<div class="row">
+														<h:column>
+															<div class="col-sm-2">
+																<h:column>
+																	<div class="btn-group btn-group-left">
+													 					<a class="btn initialized" href="#">Quero Essa Vaga</a>
+													 				</div>
+																</h:column>
+															</div>
+														</h:column>
+													</div>
+												</h:column>
+											</div>
+										</h:column>
 									</h:column>
 								</div>
 							</div>
 						</h:column>
-				</h:dataTable>
-					<div class="col-md-2">
-						<div class="panel panel-default">
-							<div class="row">
-								<div class="col-xs-6 col-md-12">
-									<a class="mbf" href="/coobo">
-										<span class="square-image panel-cover mbf square" data-component="Logo" style="background-image: url(https://99prod.s3.amazonaws.com/uploads/image/file/305939/regular_marca-vertical.png);">
-											<span class="square-container">
-												<div class="uploadbox-image-container" width="250" height="250">
-													<img width="250" height="250" class="img-responsive" src="https://99prod.s3.amazonaws.com/uploads/image/file/305939/regular_marca-vertical.png" alt="Regular marca vertical"></img>
-												</div>
-											</span>
-										</span>
-									</a>
-								</div>
-								<div class="col-xs-6 col-md-12">
-									<div class="panel-body">
-										<h1 class="panel-title">Coobo</h1>
-										<address><i class="fa fa-map-marker"></i> Rio de Janeiro, RJ</address>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-10">
-					<div class="panel panel-default">
-				 	<div class="panel-heading">
-				 		<h1 class="panel-title">Estágio em Web Designer</h1>
-				 	</div>
-				 	<div class="panel-body">
-				 		<div class="row">
-				 			<div class="col-md-3">
-				 				<h4>Tipo</h4>
-				 				<p>Estágio</p>
-				 			</div>
-				 			<div class="col-md-3">
-				 				<h4>Cursos</h4>
-				 				<p>Sistemas de Informação</p>
-				 			</div>
-				 			<div class="col-md-3">
-				 				<h4>Valor</h4>
-				 				<p>R$ 1.000,00</p>
-				 			</div>
-				 			<div class="col-md-3">
-				 				<h4>Carga Horária</h4>
-				 				<p>20h semanais</p>
-				 			</div>
-				 			<div class="col-md-10">
-				 				<h4>Descrição</h4>
-				 				<p>
-				 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend enim id tortor congue posuere. Sed dignissim nunc ac facilisis porttitor. Suspendisse potenti. Curabitur neque mi, mollis ac dignissim non, lacinia sit amet magna. Integer vitae molestie justo, eget ultricies tortor. Nam nec libero eget lectus dictum rhoncus. Vestibulum dapibus est eget mollis faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend enim id tortor congue posuere. Sed dignissim nunc ac facilisis porttitor. Suspendisse potenti. Curabitur neque mi, mollis ac dignissim non, lacinia sit amet magna. Integer vitae molestie justo, eget ultricies tortor. Nam nec libero eget lectus dictum rhoncus. Vestibulum dapibus est eget mollis faucibus.
-				 				</p>
-				 			</div>
-				 		</div>
-				 	</div>
-				 	<div class="panel-footer">
-				 		<div class="row">
-				 			<div class="col-sm-2">
-				 				<div class="btn-group btn-group-left">
-				 					<a class="btn btn-success initialized" data-component="eventSubscribe" data-event-template="opportunityApply" data-target="#modal-inscreva-se" data-toggle="modal" href="#">Mais Informações</a>
-				 				</div>
-				 			</div>
-				 			<div class="col-sm-2">
-				 				<div class="btn-group btn-group-left">
-				 					<a class="btn btn-success initialized" data-component="eventSubscribe" data-event-template="opportunityApply" data-target="#modal-inscreva-se" data-toggle="modal" href="#">Quero Essa Vaga</a>
-				 				</div>
-				 			</div>
-				 			
-				 		</div>
-				 	</div>
-			  		</div>
-				  	</div>
-              
+				</h:dataTable>              
             
         	</section>
         </section>

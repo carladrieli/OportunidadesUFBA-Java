@@ -65,7 +65,7 @@ public class UsuarioDAO {
 	public void insereUsuarioProfessor(Usuario usuario) {
 
 		String sql = "INSERT INTO usuario"
-				+ "(nome, senha, email, tipousuario_id, descricaoPerfil)" + " values (?,?,?,?,?)";
+				+ "(nome, senha, email, tipousuario_id, descricaoPerfil, contato_idcontato)" + " values (?,?,?,?,?,?)";
 
 		PreparedStatement stmt = null;
 
@@ -82,7 +82,7 @@ public class UsuarioDAO {
 			stmt.setString(3, usuario.getEmail());
 			stmt.setInt(4, 3);
 			stmt.setString(5, usuario.getDescricaoPerfil());
-
+			stmt.setInt(6, 1);
 			stmt.execute();
 
 			stmt.close();

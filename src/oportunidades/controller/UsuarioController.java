@@ -26,6 +26,12 @@ public class UsuarioController {
 		daoUsuario.insereUsuario(usuario);		
 	}
 	
+	public String insereUsuarioProfessor() throws Exception {
+		UsuarioDAO daoUsuario = new UsuarioDAO();
+		daoUsuario.insereUsuarioProfessor(usuario);
+		return "painel_admin.xhtml?faces-redirect=true";
+	}
+	
 	public String usuarioAutentica() {
 		UsuarioDAO daoUsuario = new UsuarioDAO();
 		daoUsuario.buscaUsuarioId(usuario);

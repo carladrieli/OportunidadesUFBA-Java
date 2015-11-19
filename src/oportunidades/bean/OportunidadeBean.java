@@ -128,9 +128,9 @@ public class OportunidadeBean {
 		return "painel_admin.xhtml?faces-redirect=true";
 	}
 	
-	public List<Oportunidade> listaOportunidade() {
+	public String listaOportunidade() {
 		System.out.println("ListandoOportunidades !");
-		return getListaOportunidade();
+		return "visualiza_oportunidade_admin.xhtml?faces-redirect=true";
 	}
 	
 	public void resetBean() {
