@@ -19,7 +19,7 @@
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="pagina">
 			<div class="col-md-8 col-sm-9 col-xs-10">
-				<h:form>
+				<h:form id="form-oportunidade">
 					<div class="form-group">
 						<label class="form-label" for="field-1">Título</label>
 						<h:inputText value="#{oportunidadeBean.oportunidade.nome}"
@@ -70,10 +70,10 @@
 							value="#{oportunidadeBean.oportunidade.descricao}"
 							class="form-control" id="descricao-oportunidade" rows="5" />
 					</div>
+					<h:commandButton value="Limpar" class="btn" action="#{oportunidadeBean.resetBean}" />
 					<h:commandButton value="Cadastrar" class="btn"
 						action="#{oportunidadeBean.insereOportunidade}">
 					</h:commandButton>
-
 				</h:form>
 			</div>
 		</div>

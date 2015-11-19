@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import oportunidades.dao.AreaDAO;
@@ -29,6 +30,7 @@ public class OportunidadeBean {
 	public OportunidadeBean () {
 
 	}
+	
 
 	public String[] getListaCursoSelecionados() {
 		return listaCursoSelecionados;
@@ -101,15 +103,24 @@ public class OportunidadeBean {
 		listaCurso = daoCurso.buscaCursoArea(areaId);
 	}
 	
-	
 	public String insereOportunidade() {
 		System.out.println("InsereOportunidade BeaN			!");
 		int a = listaCursoSelecionados.length;
 		System.out.println("Quantidad de cursos: " + a);
 		OportunidadeDAO daoOportunidade = new OportunidadeDAO();
 		oportunidade = daoOportunidade.insereOportunidade(oportunidade, listaCursoSelecionados);
+		resetBean();
 		return "painel_admin.xhtml?faces-redirect=true";
-		
+	}
+	
+	public void resetBean() {
+		oportunidade = new Oportunidade();
+		curso = new Curso();
+		area = new Area();
+		listaCurso = null;
+		listaArea = null;
+		listaCursoSelecionados = null;
+		areaId = 0;
 	}
 
 }
